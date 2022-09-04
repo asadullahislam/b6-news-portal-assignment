@@ -29,6 +29,10 @@ const loadCategoryDetail = async (categoryId) => {
     // console.log()
     const allNews = data.data;
     console.log(allNews);
+    allNews.sort((a, b) => {
+        return a.total_view - b.total_view;
+    });
+
 
 
     const newsNumberContainer = document.getElementById('news-number');
@@ -39,6 +43,7 @@ const loadCategoryDetail = async (categoryId) => {
     modalContainer.innerHTML = ``;
     for (const news of allNews) {
         console.log(news)
+
         const newDiv = document.createElement('div');
         newDiv.classList.add('row');
         newDiv.classList.add('border');
