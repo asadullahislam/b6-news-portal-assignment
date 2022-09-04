@@ -11,21 +11,25 @@ const loadSpinner = isLoading => {
 const loadAllCategory = async () => {
     const url = `https://openapi.programming-hero.com/api/news/categories`;
     const res = await fetch(url)
-    const data = await res.json();
+    try {
+        const data = await res.json();
+        // console.log(data.data.news_category[0]);
+        const categories = data.data.news_category;
 
-    // console.log(data.data.news_category[0]);
-    const categories = data.data.news_category;
 
+        const allMenu = document.getElementById('all-menu');
 
-    const allMenu = document.getElementById('all-menu');
+        for (const category of categories) {
+            const li = document.createElement('all-menu');
+            li.classList.add('nav-item');
+            li.innerHTML = `<button onclick="loadCategoryDetail('${category.category_id}')" class="btn btn-transparent nav-link fs-5 fw-semibold">${category.category_name}</button>`
+            allMenu.appendChild(li);
 
-    for (const category of categories) {
-        const li = document.createElement('all-menu');
-        li.classList.add('nav-item');
-        li.innerHTML = `<button onclick="loadCategoryDetail('${category.category_id}')" class="btn btn-transparent nav-link fs-5 fw-semibold">${category.category_name}</button>`
-        allMenu.appendChild(li);
-
-        // console.log(news);
+            // console.log(news);
+        }
+    }
+    catch (e) {
+        console.log(e);
     }
 
 }
@@ -38,27 +42,28 @@ const loadCategoryDetail = async (categoryId) => {
     loadSpinner(true);
     const url = `https://openapi.programming-hero.com/api/news/category/${categoryId}`
     const res = await fetch(url)
-    const data = await res.json();
-    // console.log()
-    const allNews = data.data;
-    // console.log(allNews);
-    allNews.sort((a, b) => {
-        return a.total_view - b.total_view;
-    });
+    try {
+        const data = await res.json();
+        // console.log()
+        const allNews = data.data;
+        // console.log(allNews);
+        allNews.sort((a, b) => {
+            return a.total_view - b.total_view;
+        });
 
 
 
-    const newsNumberContainer = document.getElementById('news-number');
-    newsNumberContainer.innerText = allNews.length;
-    const modalContainer = document.getElementById('modal-container');
-    modalContainer.innerHTML = ``;
-    allNews.forEach(news => {
-        const newDiv = document.createElement('div');
-        newDiv.classList.add('shadow');
-        newDiv.classList.add('mb-5');
-        newDiv.classList.add('rounded');
-        newDiv.classList.add('bg-body');
-        newDiv.innerHTML = `
+        const newsNumberContainer = document.getElementById('news-number');
+        newsNumberContainer.innerText = allNews.length;
+        const modalContainer = document.getElementById('modal-container');
+        modalContainer.innerHTML = ``;
+        allNews.forEach(news => {
+            const newDiv = document.createElement('div');
+            newDiv.classList.add('shadow');
+            newDiv.classList.add('mb-5');
+            newDiv.classList.add('rounded');
+            newDiv.classList.add('bg-body');
+            newDiv.innerHTML = `
         <div class="row p-3">
                     <div class="col-lg-3">
                         <div>
@@ -109,14 +114,14 @@ const loadCategoryDetail = async (categoryId) => {
                     </div>
                 </div>
         `
-        newsDetailsContainer.appendChild(newDiv);
+            newsDetailsContainer.appendChild(newDiv);
 
 
-        // modal body 
+            // modal body 
 
-        const modalContainer = document.getElementById('modal-container');
-        const modalDiv = document.createElement('div');
-        modalDiv.innerHTML = `
+            const modalContainer = document.getElementById('modal-container');
+            const modalDiv = document.createElement('div');
+            modalDiv.innerHTML = `
         
         <div class="modal fade" id="modal${news._id}" tabindex="-1" aria-labelledby="modal${news._id}Label"
         aria-hidden="true">
@@ -151,10 +156,14 @@ const loadCategoryDetail = async (categoryId) => {
     </div>
         
         `
-        modalContainer.appendChild(modalDiv);
+            modalContainer.appendChild(modalDiv);
 
-    })
-    loadSpinner(false);
+        })
+        loadSpinner(false);
+    }
+    catch (er) {
+        console.log(er);
+    }
 
 }
 
