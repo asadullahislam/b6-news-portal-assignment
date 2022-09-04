@@ -41,7 +41,7 @@ const loadCategoryDetail = async (categoryId) => {
     const data = await res.json();
     // console.log()
     const allNews = data.data;
-    console.log(allNews);
+    // console.log(allNews);
     allNews.sort((a, b) => {
         return a.total_view - b.total_view;
     });
@@ -52,9 +52,7 @@ const loadCategoryDetail = async (categoryId) => {
     newsNumberContainer.innerText = allNews.length;
     const modalContainer = document.getElementById('modal-container');
     modalContainer.innerHTML = ``;
-    for (const news of allNews) {
-        console.log(news)
-
+    allNews.forEach(news => {
         const newDiv = document.createElement('div');
         newDiv.classList.add('shadow');
         newDiv.classList.add('mb-5');
@@ -155,7 +153,7 @@ const loadCategoryDetail = async (categoryId) => {
         `
         modalContainer.appendChild(modalDiv);
 
-    }
+    })
     loadSpinner(false);
 
 }
