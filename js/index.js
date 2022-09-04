@@ -47,40 +47,59 @@ const loadCategoryDetail = async (categoryId) => {
         console.log(news)
 
         const newDiv = document.createElement('div');
-        newDiv.classList.add('row');
-        newDiv.classList.add('border');
+        newDiv.classList.add('shadow');
+        newDiv.classList.add('mb-5');
+        newDiv.classList.add('rounded');
+        newDiv.classList.add('bg-body');
         newDiv.innerHTML = `
-                <div class="col-3">
-                    <img class="img-fluid" src="${news.thumbnail_url}" alt="">
-                </div>
-                <div class="col-9">
-                    <div>
-                        <h2>${news.title}</h2>
-                        <p>${news.details.slice(0, 300)}...</p>
-                    </div>
-        
-                    <div class="d-flex justify-content-between">
+        <div class="row p-3">
+                    <div class="col-lg-3">
                         <div>
-                        <img class="img-fluid author-img rounded-circle" src="${news.author.img}" alt="">
-                    </div>
-                        <div>
-                        
-                            <h4>${news.author.name ? news.author.name : 'Not Available'}</h4>
-                            <p>${news.author.published_date ? news.author.published_date.slice(0, 10) : 'Not Available'}</p>
+                            <img class="w-100"
+                                src="${news.thumbnail_url}"
+                                alt="">
                         </div>
-        
-                        <p><i class="fa-regular fa-eye"></i> ${news.total_view ? news.total_view : '0'}</p>
-                        <p></i><i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star-half-stroke"></i>
-        
-                        </p>
-
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal${news._id}">
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </button>
+                    </div>
+                    <div class="col-lg-9 d-flex align-items-center">
+                        <div>
+                            <h2>${news.title}</h2>
+                            <p>${news.details.slice(0, 300)}...</p>
+                            <div class="row">
+                                <div class="col-6 col-lg-4">
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <img class="author-img rounded-circle"
+                                                src="${news.author.img}"
+                                                alt="">
+                                        </div>
+                                        <div class="ps-2">
+                                            <p class="fw-semibold p-0 m-0">${news.author.name ? news.author.name : 'Not Available'}</p>
+                                            <p class="text-muted p-0 m-0">${news.author.published_date ? news.author.published_date.slice(0, 10) : 'Not Available'}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-6 col-lg-2 d-flex align-items-center justify-content-end justify-content-lg-center">
+                                    <p class="p-0 m-0"><i class="fa-regular fa-eye"></i> ${news.total_view ? news.total_view : '0'}</p>
+                                </div>
+                                <div class="col-6 col-lg-4 d-flex align-items-center justify-content-lg-center">
+                                    <p class="p-0 m-0">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star-half-stroke"></i>
+                                    </p>
+                                </div>
+                                <div class="col-6 col-lg-2 d-flex align-items-center justify-content-end">
+                                    <button type="button" class="btn btn-transparent text-primary fs-3"
+                                        data-bs-toggle="modal" data-bs-target="#modal${news._id}">
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
         `
         newsDetailsContainer.appendChild(newDiv);
