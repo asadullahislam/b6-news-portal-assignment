@@ -12,9 +12,10 @@ const loadAllCategory = async () => {
     const allMenu = document.getElementById('all-menu');
 
     for (const category of categories) {
-        const a = document.createElement('all-menu');
-        a.innerHTML = ` <a onclick="loadCategoryDetail('${category.category_id}')" class="navbar-brand" href="#">${category.category_name}</a>`
-        allMenu.appendChild(a);
+        const li = document.createElement('all-menu');
+        li.classList.add('nav-item');
+        li.innerHTML = `<button onclick="loadCategoryDetail('${category.category_id}')" class="btn btn-transparent nav-link fs-5 fw-semibold">${category.category_name}</button>`
+        allMenu.appendChild(li);
 
         // console.log(news);
     }
@@ -54,7 +55,7 @@ const loadCategoryDetail = async (categoryId) => {
                 </div>
                 <div class="col-9">
                     <div>
-                        <h2>${news.title}</h2>v
+                        <h2>${news.title}</h2>
                         <p>${news.details.slice(0, 300)}...</p>
                     </div>
         
