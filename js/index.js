@@ -1,25 +1,4 @@
 
-
-const loadAllCategory = async () => {
-    const url = `https://openapi.programming-hero.com/api/news/categories`;
-    const res = await fetch(url)
-    const data = await res.json();
-
-    // console.log(data.data.news_category[0]);
-    const categories = data.data.news_category;
-
-
-    const allMenu = document.getElementById('all-menu');
-
-    for (const category of categories) {
-        const a = document.createElement('all-menu');
-        a.innerHTML = ` <a onclick="loadCategoryDetail('${category.category_id}')" class="navbar-brand" href="#">${category.category_name}</a>`
-        allMenu.appendChild(a);
-
-        // console.log(news);
-    }
-
-}
 // const loadCategoryDetail = async () => {
 
 const loadCategoryDetail = async (categoryId) => {
