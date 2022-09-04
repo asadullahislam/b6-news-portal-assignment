@@ -1,4 +1,12 @@
-
+const loadSpinner = isLoading => {
+    const spinnerContainer = document.getElementById('spinner-container');
+    if (isLoading === true) {
+        spinnerContainer.classList.remove('d-none');
+    }
+    else {
+        spinnerContainer.classList.add('d-none');
+    }
+}
 
 const loadAllCategory = async () => {
     const url = `https://openapi.programming-hero.com/api/news/categories`;
@@ -25,6 +33,9 @@ const loadAllCategory = async () => {
 // const loadCategoryDetail = async () => {
 
 const loadCategoryDetail = async (categoryId) => {
+    const newsDetailsContainer = document.getElementById('news-details');
+    newsDetailsContainer.innerHTML = ``;
+    loadSpinner(true);
     const url = `https://openapi.programming-hero.com/api/news/category/${categoryId}`
     const res = await fetch(url)
     const data = await res.json();
@@ -39,8 +50,6 @@ const loadCategoryDetail = async (categoryId) => {
 
     const newsNumberContainer = document.getElementById('news-number');
     newsNumberContainer.innerText = allNews.length;
-    const newsDetailsContainer = document.getElementById('news-details');
-    newsDetailsContainer.innerHTML = ``;
     const modalContainer = document.getElementById('modal-container');
     modalContainer.innerHTML = ``;
     for (const news of allNews) {
@@ -104,6 +113,7 @@ const loadCategoryDetail = async (categoryId) => {
         `
         newsDetailsContainer.appendChild(newDiv);
 
+
         // modal body 
 
         const modalContainer = document.getElementById('modal-container');
@@ -146,6 +156,7 @@ const loadCategoryDetail = async (categoryId) => {
         modalContainer.appendChild(modalDiv);
 
     }
+    loadSpinner(false);
 
 }
 
