@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="style/style.css">
 </head>
 
-<body class="container">
+<body class="container bg-light">
     <header class="conatainer  mx-auto text-center">
 
         <nav class="navbar navbar-expand-lg bg-light">
@@ -25,18 +25,15 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="#"><span
+                                    class="text-info">News</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="questions/question.html">Blog</a>
                         </li>
                     </ul>
-
-                    <div class="d-flex gap-3 ">
-                        <h3> <a class="nav-link active" aria-current="page" href="#"><span
-                                    class="text-info">News</span></a>
-                        </h3>
-                        <h3> <a class="nav-link active" aria-current="page" href="questions/question.html">Blog</a></h3>
-                    </div>
                 </div>
             </div>
         </nav>
@@ -49,173 +46,12 @@
             </ul>
         </section>
         <!-- length of item  -->
-        <section class="bg-white">
+        <section class="bg-white my-4 py-2 px-3 rounded">
             <h2><span id="news-number">0</span> items found for category Entertainment</h2>
         </section>
 
         <section>
             <div id="news-details">
-
-                <!-- <div class="row p-3">
-                    <div class="col-lg-3">
-                        <div>
-                            <img class="w-100"
-                                src="https://avatars.mds.yandex.net/i?id=ad81aececc57171b2f9e9a397efecd69-5222421-images-taas-consumers&n=27&h=480&w=480"
-                                alt="">
-                        </div>
-                    </div>
-                    <div class="col-lg-9 d-flex align-items-center">
-                        <div>
-                            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo commodi</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis repellat nostrum
-                                tenetur laboriosam expedita nesciunt voluptatibus non quasi dolorem magni perferendis
-                                veniam quidem repudiandae itaque quo optio possimus, ab mollitia!</p>
-                            <div class="row">
-                                <div class="col-6 col-lg-4">
-                                    <div class="d-flex align-items-center">
-                                        <div>
-                                            <img class="author-img rounded-circle"
-                                                src="https://avatars.mds.yandex.net/i?id=ad81aececc57171b2f9e9a397efecd69-5222421-images-taas-consumers&n=27&h=480&w=480"
-                                                alt="">
-                                        </div>
-                                        <div class="ps-2">
-                                            <p class="fw-semibold p-0 m-0">Author Name</p>
-                                            <p class="text-muted p-0 m-0">Date</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div
-                                    class="col-6 col-lg-2 d-flex align-items-center justify-content-end justify-content-lg-center">
-                                    <p class="p-0 m-0"><i class="fa-regular fa-eye"></i> 1.5</p>
-                                </div>
-                                <div class="col-6 col-lg-4 d-flex align-items-center justify-content-lg-center">
-                                    <p class="p-0 m-0">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-regular fa-star-half-stroke"></i>
-                                    </p>
-                                </div>
-                                <div class="col-6 col-lg-2 d-flex align-items-center justify-content-end">
-                                    <button type="button" class="btn btn-transparent text-primary fs-3"
-                                        data-bs-toggle="modal" data-bs-target="#modalid">
-                                        <i class="fa-solid fa-arrow-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
-
-
-                <div class="row p-3">
-                    <div class="col-lg-3">
-                        <div>
-                            <img class="w-100"
-                                src="https://avatars.mds.yandex.net/i?id=ad81aececc57171b2f9e9a397efecd69-5222421-images-taas-consumers&n=27&h=480&w=480"
-                                alt="">
-                        </div>
-                    </div>
-                    <div class="col-lg-9 d-flex align-items-center">
-                        <div>
-                            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo commodi</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis repellat nostrum
-                                tenetur laboriosam expedita nesciunt voluptatibus non quasi dolorem magni perferendis
-                                veniam quidem repudiandae itaque quo optio possimus, ab mollitia!</p>
-                            <div class="row">
-                                <div class="col-6 col-lg-4">
-                                    <div class="d-flex align-items-center">
-                                        <div>
-                                            <img class="author-img rounded-circle"
-                                                src="https://avatars.mds.yandex.net/i?id=ad81aececc57171b2f9e9a397efecd69-5222421-images-taas-consumers&n=27&h=480&w=480"
-                                                alt="">
-                                        </div>
-                                        <div class="ps-2">
-                                            <p class="fw-semibold p-0 m-0">Author Name</p>
-                                            <p class="text-muted p-0 m-0">Date</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div
-                                    class="col-6 col-lg-2 d-flex align-items-center justify-content-end justify-content-lg-center">
-                                    <p class="p-0 m-0"><i class="fa-regular fa-eye"></i> 1.5</p>
-                                </div>
-                                <div class="col-6 col-lg-4 d-flex align-items-center justify-content-lg-center">
-                                    <p class="p-0 m-0">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-regular fa-star-half-stroke"></i>
-                                    </p>
-                                </div>
-                                <div class="col-6 col-lg-2 d-flex align-items-center justify-content-end">
-                                    <button type="button" class="btn btn-transparent text-primary fs-3"
-                                        data-bs-toggle="modal" data-bs-target="#modalid">
-                                        <i class="fa-solid fa-arrow-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-                <div class="row p-3">
-                    <div class="col-lg-3">
-                        <div>
-                            <img class="w-100"
-                                src="https://avatars.mds.yandex.net/i?id=ad81aececc57171b2f9e9a397efecd69-5222421-images-taas-consumers&n=27&h=480&w=480"
-                                alt="">
-                        </div>
-                    </div>
-                    <div class="col-lg-9 d-flex align-items-center">
-                        <div>
-                            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo commodi</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis repellat nostrum
-                                tenetur laboriosam expedita nesciunt voluptatibus non quasi dolorem magni perferendis
-                                veniam quidem repudiandae itaque quo optio possimus, ab mollitia!</p>
-                            <div class="row">
-                                <div class="col-6 col-lg-4">
-                                    <div class="d-flex align-items-center">
-                                        <div>
-                                            <img class="author-img rounded-circle"
-                                                src="https://avatars.mds.yandex.net/i?id=ad81aececc57171b2f9e9a397efecd69-5222421-images-taas-consumers&n=27&h=480&w=480"
-                                                alt="">
-                                        </div>
-                                        <div class="ps-2">
-                                            <p class="fw-semibold p-0 m-0">Author Name</p>
-                                            <p class="text-muted p-0 m-0">Date</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div
-                                    class="col-6 col-lg-2 d-flex align-items-center justify-content-end justify-content-lg-center">
-                                    <p class="p-0 m-0"><i class="fa-regular fa-eye"></i> 1.5</p>
-                                </div>
-                                <div class="col-6 col-lg-4 d-flex align-items-center justify-content-lg-center">
-                                    <p class="p-0 m-0">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-regular fa-star-half-stroke"></i>
-                                    </p>
-                                </div>
-                                <div class="col-6 col-lg-2 d-flex align-items-center justify-content-end">
-                                    <button type="button" class="btn btn-transparent text-primary fs-3"
-                                        data-bs-toggle="modal" data-bs-target="#modalid">
-                                        <i class="fa-solid fa-arrow-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
 
