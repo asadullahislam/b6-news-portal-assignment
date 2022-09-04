@@ -35,13 +35,14 @@ const loadCategoryDetail = async (categoryId) => {
         console.log(news)
         const newDiv = document.createElement('div');
         newDiv.classList.add('row');
+        newDiv.classList.add('border');
         newDiv.innerHTML = `
                     <div class="col-3">
                     <img class="img-fluid" src="${news.thumbnail_url}" alt="">
                 </div>
                 <div class="col-9">
                     <div>
-                        <h2>${news.title}</h2>
+                        <h2>${news.title}</h2>v
                         <p>${news.details.slice(0, 300)}...</p>
                     </div>
         
@@ -52,7 +53,7 @@ const loadCategoryDetail = async (categoryId) => {
                          <div>
                         
                             <h4>${news.author.name ? news.author.name : 'Not Available'}</h4>
-                            <p>${news.author.published_date.slice(0, 10)}</p>
+                            <p>${news.author.published_date.slice(0, 10) ? news.author.published_date : 'Not Available'}</p>
                         </div>
         
                         <p><i class="fa-regular fa-eye"></i> ${news.total_view ? news.total_view : '0'}</p>
@@ -64,15 +65,16 @@ const loadCategoryDetail = async (categoryId) => {
         
                         </p>
         
-                        <p><i class="fa-solid fa-arrow-right"></i></p>
+                        <button onclick="loadCategoryDetail('')"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newDetailModal><i class="fa-solid fa-arrow-right"></i></button>
                     </div>
-        
         
         
                 </div>
         `
         newsDetailsContainer.appendChild(newDiv);
     }
+
+
 
 }
 
